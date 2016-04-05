@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BookSite.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.ActionLink("Date of Birth", "Index", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDate)
+        </td>
+
+        <td>
+            <!--       @Html.ActionLink("Edit", "Edit", new { id=item.UID }) |-->
+            @Html.ActionLink("Details", "Details", new { id=item.UID }) |
+            <!--       @Html.ActionLink("Delete", "Delete", new { id=item.UID }) |-->
+            @Html.ActionLink("Message", "Message", new { id = item.UID }) |
+            @Html.ActionLink("Book", "Book", new { id = item.UID })
+        </td>
+    </tr>
+}
+
+</table>

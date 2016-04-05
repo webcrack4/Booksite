@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BookSite.ViewModel.soldGroup>
+
+@{
+    ViewBag.Title = "Sold Book Number";
+}
+
+<h2>Sold Book Number</h2>
+
+<table>
+    <tr>
+        <th>
+            FirstName
+        </th>
+        <th>
+            Sold Book Number
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @item.BookCount
+            </td>
+        </tr>
+    }
+</table>

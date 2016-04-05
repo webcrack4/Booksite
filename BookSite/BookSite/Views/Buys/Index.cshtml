@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BookSite.Models.Buy>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpectPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TradeOrBuy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TradeOrBuy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BuyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BuyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BuyID })
+        </td>
+    </tr>
+}
+
+</table>

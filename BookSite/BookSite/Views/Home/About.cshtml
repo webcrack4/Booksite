@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BookSite.ViewModel.UserGroup>
+
+@{
+    ViewBag.Title = "User Number";
+}
+
+<h2>User Number</h2>
+
+<table>
+    <tr>
+        <th>
+            User Type
+        </th>
+        <th>
+            Number
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                @item.UserCount
+            </td>
+        </tr>
+    }
+</table>
