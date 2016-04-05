@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Message]
+(
+	[MID] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Context] VARCHAR(50) NULL, 
+    [UID] INT NULL,
+	CONSTRAINT [FK_dbo.Message.User_UserID] FOREIGN KEY ([UID]) 
+        REFERENCES [dbo].[User] ([UID]) ON DELETE CASCADE
+)
